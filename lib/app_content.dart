@@ -31,12 +31,13 @@ class AppContentState extends State<AppContent> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: pages[pageTabController.index].tabTitle,
         bottom: TabBar(
           controller: pageTabController,
           tabs: pages.map((PageTab page) => 
             Tab(
               icon: page.tabIcon,
-              child: page.tabChild,
+              child: page.tabTitle,
             )
           ).toList(),
         ),

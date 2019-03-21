@@ -1,6 +1,6 @@
 //TODO Sort all of these
 class NekosLifeEndpoints {
-  final List<String> sfw = [
+  static const List<String> sfw = [
     'femdom', 
     'tickle', 
     'classic', 
@@ -62,7 +62,7 @@ class NekosLifeEndpoints {
     'eron', 
     'erokemo',
   ];
-  final List<String> nsfw = [
+  static const List<String> nsfw = [
     'lewd',
     'cum',
     'ero',
@@ -70,4 +70,9 @@ class NekosLifeEndpoints {
     'anal', 
     'blowjob', 
   ];
+  static List<String> getAvailableTags({bool includeNsfw = true}) {
+    List<String> tags = new List.from(sfw, growable: true);
+    if(includeNsfw) tags.addAll(nsfw);
+    return tags;
+  }
 }
